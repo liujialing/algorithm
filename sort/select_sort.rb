@@ -25,9 +25,11 @@ def select_sort_for_hash(hash,index)
   Hash[arr]
 end
 
-array=SortHelper::generate_array(100,2554,87);
-select_sort(array)
-p array
+SortHelper::caculate_time("select_sort") do
+  array=SortHelper::generate_array(10000,2554,87);
+  select_sort(array)
+  p array
+end  
 
 #on function 
 array_string=["A","F","G","C"]

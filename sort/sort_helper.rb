@@ -11,5 +11,12 @@ module SortHelper
     end  
     arr
   end
+
+  def self.caculate_time(method_name)
+    start_time=Time.now.to_i
+    yield
+    end_time = Time.now.to_i
+    puts method_name+" costs "+(end_time-start_time).to_s+" seconds"
+  end  
   
 end
