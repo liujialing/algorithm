@@ -1,5 +1,4 @@
 #coding: utf-8
-require './sort_helper.rb'
 
 def select_sort(arr)
   return arr if arr.size==0||arr.size==1
@@ -25,19 +24,18 @@ def select_sort_for_hash(hash,index)
   Hash[arr]
 end
 
-SortHelper::caculate_time("select_sort") do
-  array=SortHelper::generate_array(10000,2554,87);
-  select_sort(array)
-  p array
-end  
-
-#on function 
+#no function 
+=begin
 array_string=["A","F","G","C"]
 select_sort(array_string)
 p array_string
+=end
 
+#test for hash
+=begin
 hash={:a=>11, :c=>7, :b=>8}
 new_hash=select_sort_for_hash(hash,1)
 p new_hash
+=end
 
 
