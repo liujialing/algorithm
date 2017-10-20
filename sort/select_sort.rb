@@ -2,7 +2,7 @@
 
 def select_sort(arr)
   return arr if arr.size==0||arr.size==1
-  (0...arr.size).each do |i|
+  (0...arr.size-1).each do |i|
     minindex = i
     (i+1...arr.size).each do |j|
       minindex = j if arr[minindex].to_i > arr[j].to_i

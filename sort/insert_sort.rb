@@ -25,3 +25,20 @@ def optimize_insert_sort(arr)
     arr[j]=tmp
   end 
 end  
+
+#increased interval cycle
+def shell_insert(arr)
+  return arr if arr.size ==0 || arr.size == 1
+  gap = arr.size/2
+  while(gap !=0) do
+    (gap...arr.size).each do |i|
+      tmp,j = arr[i],i
+      while(j>0&&arr[j-gap] > tmp) do
+        arr[j]=arr[j-gap]
+        j-=gap
+      end 
+      arr[j]=tmp
+    end  
+    gap/=2
+  end  
+end  
