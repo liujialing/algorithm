@@ -1,15 +1,10 @@
 #coding: utf-8
 module SortHelper
   def self.generate_array(num,rangA,rangB)
-    arr = []
     if rangA>rangB
       rangA,rangB = rangB,rangA
     end  
-    prng = Random.new
-    (0...num).each do
-      arr << prng.rand(rangA..rangB)
-    end  
-    arr
+    Array.new(num){rand(rangA...rangB)}
   end
 
   def self.caculate_time(method_name)
@@ -18,5 +13,12 @@ module SortHelper
     end_time = Time.now.to_f*1000.to_i
     puts method_name+" costs "+(end_time-start_time).to_s+" mili seconds"
   end  
+
+  def self.correct?(arr)
+    (0...arr.size-1).each do |i|
+        return false if(arr[i]>arr[i+1]) 
+     end
+     return true 
+  end 
   
 end
