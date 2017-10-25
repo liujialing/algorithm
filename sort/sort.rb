@@ -97,4 +97,43 @@ class Sort
       gap/=2
     end  
   end 
+
+  #归并排序
+  def merge_sort(arr)
+    l,r = 0,arr.size-1
+   merge_sort_recursion(arr,l,r)
+  end  
+
+  private 
+  def merge_sort_recursion(arr,l,r)
+    return optimize_insert_sort(arr[l..r]) if r-l<=15
+    mid = (l+r)/2
+    merge_sort_recursion(arr,l,mid)
+    merge_sort_recursion(arr,mid+1,r)
+    if arr[mid]<arr[mid+1]
+      merge_array(arr,l,mid,r)
+    end  
+  end
+
+  def merge_array(arr,l,mid,r)
+    tmp=arr[l..r]
+    i,j=l,mid+1
+    (0...tmp.size).each do |k|
+      if i>mid
+        tmp[k]=arr[j]
+        j+=1
+      elsif j>r
+        tmp[k]=arr[i]
+        i+=1 
+      elsif arr[i]>arr[j]
+        tmp[k]=arr[j]
+        j+=1
+      else
+        tmp[k]=arr[i]
+        i+=1
+      end    
+    end 
+    arr[l..r]=tmp 
+  end  
+
 end
