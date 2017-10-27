@@ -2,7 +2,7 @@
 class Sort
   #冒泡排序
   def bubble_sort(arr)
-    (0...arr.size).each do |i|
+    (0...arr.size-1).each do |i|
       (0...(arr.size-i-1)).each do |j|
         arr[j],arr[j+1] = arr[j+1],arr[j] if arr[j]>arr[j+1]
       end 
@@ -16,7 +16,7 @@ class Sort
      while(flag>0)
        k=flag
        flag=0
-       (0...k).each do |i|
+       (0...k-1).each do |i|
          (0...(k-i-1)).each do |j|
            if arr[j]>arr[j+1]
              arr[j],arr[j+1] = arr[j+1],arr[j]
