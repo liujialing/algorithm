@@ -122,6 +122,12 @@ class Sort
     end 
   end  
 
+  def quick_sort(arr)
+    l,r = 0,arr.size-1
+    quick_sort_recursion(arr,l,r)
+    arr
+  end  
+
   private 
   def merge_sort_recursion(arr,l,r)
     if r-l<=15
@@ -155,6 +161,27 @@ class Sort
       end    
     end 
     arr[l..r]=tmp 
+  end  
+
+  def quick_sort_recursion(arr,l,r)
+    if r<=l
+      return
+    end  
+    q=quick_sort_index(arr,l,r)
+    quick_sort_recursion(arr,l,q-1)
+    quick_sort_recursion(arr,q+1,r)
+  end  
+
+  def quick_sort_index(arr,l,r)
+    j=l
+    (l..r).each do |i|
+      if(arr[i]<arr[l])
+        arr[i],arr[j+1] = arr[j+1],arr[i]
+        j+=1
+      end  
+    end  
+    arr[j],arr[l]=arr[l],arr[j]
+    j
   end  
 
 end
