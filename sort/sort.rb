@@ -33,7 +33,7 @@ class Sort
     (0...arr.size-1).each do |i|
       minindex = i
       (i+1...arr.size).each do |j|
-        minindex = j if arr[minindex].to_i > arr[j].to_i
+        minindex = j if arr[minindex]> arr[j]
       end
       arr[minindex],arr[i]=arr[i],arr[minindex] if i!=minindex
     end
@@ -89,7 +89,7 @@ class Sort
     while(gap !=0) do
       (gap...arr.size).each do |i|
         tmp,j = arr[i],i
-        while(j>0&&arr[j-gap] > tmp) do
+        while(j-gap>=0&&arr[j-gap] > tmp) do
           arr[j]=arr[j-gap]
           j-=gap
         end 
